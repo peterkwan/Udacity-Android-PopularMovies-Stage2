@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemLayout"
+    android:orientation="vertical"
+    style="@style/TwoLineListItemStyle">
+
+    <TextView
+        android:id="@+id/itemTextView"
+        style="@style/TextViewStyle"
+        android:paddingTop="@dimen/two_line_list_item_vertical_padding"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
+
+    <com.ms.square.android.expandabletextview.ExpandableTextView
+        android:id="@+id/itemSecondaryTextView"
+        style="@style/TwoLineListItemSecondaryTextViewStyle"
+        android:layout_width="match_parent"
+        app:maxCollapsedLines="3">
+
+        <TextView
+            android:id="@id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"/>
+        
+        <ImageButton
+            android:id="@id/expand_collapse"
+            style="@style/ExpandableTextViewImageButtonStyle"
+            android:contentDescription="@string/show_more"/>
+
+    </com.ms.square.android.expandabletextview.ExpandableTextView>
+
+
+</LinearLayout>

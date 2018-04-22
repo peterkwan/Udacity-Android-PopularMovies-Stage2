@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/trailerItemLayout"
+    style="@style/MovieTrailerListItemStyle">
+
+    <ImageView
+        android:id="@+id/trailerThumbnailImageView"
+        style="@style/MovieTrailerThumbnailImageViewStyle"
+        android:contentDescription="@string/image_default_content_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/trailerTextView"
+        style="@style/MovieTrailerTextViewStyle"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/trailerThumbnailImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/movie_trailer_list_item_text_spacing"
+        android:layout_marginLeft="@dimen/movie_trailer_list_item_text_spacing"
+        android:layout_marginEnd="@dimen/movie_trailer_list_item_text_spacing"
+        android:layout_marginRight="@dimen/movie_trailer_list_item_text_spacing"/>
+
+</android.support.constraint.ConstraintLayout>

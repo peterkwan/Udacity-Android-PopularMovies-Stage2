@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/itemLayout"
+    style="@style/TwoLineListItemStyle">
+
+    <TextView
+        android:id="@+id/itemTextView"
+        style="@style/TextViewStyle"
+        android:paddingTop="@dimen/two_line_list_item_vertical_padding"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"/>
+
+    <TextView
+        android:id="@+id/itemSecondaryTextView"
+        style="@style/TwoLineListItemSecondaryTextViewStyle"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
+</LinearLayout>

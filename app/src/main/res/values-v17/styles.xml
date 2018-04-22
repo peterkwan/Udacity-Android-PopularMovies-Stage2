@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SingleLineListItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/single_line_list_item_height</item>
+        <item name="android:minHeight">@dimen/single_line_list_item_height</item>
+        <item name="android:paddingLeft">@dimen/single_line_list_item_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/single_line_list_item_horizontal_padding</item>
+        <item name="android:paddingStart">@dimen/single_line_list_item_horizontal_padding</item>
+        <item name="android:paddingEnd">@dimen/single_line_list_item_horizontal_padding</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="TwoLineListItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/two_line_list_item_min_height</item>
+        <item name="android:paddingLeft">@dimen/two_line_list_item_left_padding</item>
+        <item name="android:paddingRight">@dimen/two_line_list_item_right_padding</item>
+        <item name="android:paddingStart">@dimen/two_line_list_item_left_padding</item>
+        <item name="android:paddingEnd">@dimen/two_line_list_item_right_padding</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="LicenseDetailTextViewStyle" parent="TextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/layout_margin</item>
+        <item name="android:layout_marginLeft">@dimen/layout_margin</item>
+        <item name="android:layout_marginStart">@dimen/layout_margin</item>
+        <item name="android:paddingRight">@dimen/layout_horizontal_padding</item>
+        <item name="android:paddingEnd">@dimen/layout_horizontal_padding</item>
+        <item name="android:paddingBottom">@dimen/layout_vertical_padding</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="PosterImageViewStyle">
+        <item name="android:layout_marginTop">@dimen/large_layout_margin</item>
+        <item name="android:layout_marginBottom">@dimen/large_layout_margin</item>
+        <item name="android:layout_marginLeft">@dimen/large_layout_margin</item>
+        <item name="android:layout_marginStart">@dimen/large_layout_margin</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitStart</item>
+    </style>
+
+    <style name="MovieDetailTextViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/large_layout_margin</item>
+        <item name="android:layout_marginStart">@dimen/large_layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/large_layout_margin</item>
+        <item name="android:layout_marginEnd">@dimen/large_layout_margin</item>
+    </style>
+
+    <style name="MovieDetailViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/large_layout_margin</item>
+        <item name="android:layout_marginEnd">@dimen/large_layout_margin</item>
+    </style>
+
+    <style name="MovieDetailTabItemStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/movie_detail_tab_item_height</item>
+        <item name="android:paddingStart">@dimen/movie_detail_tab_item_horizontal_padding</item>
+        <item name="android:paddingLeft">@dimen/movie_detail_tab_item_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/movie_detail_tab_item_horizontal_padding</item>
+        <item name="android:paddingEnd">@dimen/movie_detail_tab_item_horizontal_padding</item>
+        <item name="android:paddingBottom">@dimen/movie_detail_tab_item_vertical_padding</item>
+    </style>
+
+    <style name="MovieMoreDetailLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/phone_movie_detail_tab_layout_height</item>
+        <item name="android:minHeight">@dimen/phone_movie_detail_tab_layout_height</item>
+        <item name="android:layout_marginStart">@dimen/layout_margin</item>
+        <item name="android:layout_marginEnd">@dimen/layout_margin</item>
+        <item name="android:layout_marginLeft">@dimen/layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin</item>
+    </style>
+
+    <style name="MovieTrailerTextViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/layout_margin</item>
+        <item name="android:layout_marginStart">@dimen/layout_margin</item>
+        <item name="android:layout_marginEnd">@dimen/layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin</item>
+    </style>
+
+</resources>

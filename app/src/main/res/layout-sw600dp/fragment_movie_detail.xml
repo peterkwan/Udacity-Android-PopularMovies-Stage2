@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/layout_vertical_padding"
+    tools:context=".MovieDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/movieDetailContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/backdropImageView"
+                style="@style/BackdropImageViewStyle"
+                android:contentDescription="@string/image_default_content_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/posterImageView"
+                android:layout_width="@dimen/tablet_poster_image_width"
+                android:layout_height="@dimen/tablet_poster_image_height"
+                style="@style/PosterImageViewStyle"
+                android:contentDescription="@string/image_default_content_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/backdropImageView" />
+
+            <TextView
+                android:id="@+id/titleTextView"
+                style="@style/MovieDetailTextViewStyle"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@+id/posterImageView"
+                app:layout_constraintStart_toEndOf="@+id/posterImageView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/originalTitleTextView"
+                style="@style/MovieDetailViewStyle"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+                app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/releaseDateTextView"
+                style="@style/MovieDetailViewStyle"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                app:layout_constraintTop_toBottomOf="@+id/originalTitleTextView"
+                app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/userRatingTextView"
+                style="@style/MovieDetailViewStyle"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintTop_toBottomOf="@+id/releaseDateTextView"
+                app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/ratingBarLayout"
+                style="@style/MovieDetailViewStyle"
+                app:layout_constraintTop_toBottomOf="@+id/userRatingTextView"
+                app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="10"
+                    android:stepSize="0.1"
+                    style="@style/Widget.AppCompat.RatingBar.Small" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/favoriteButton"
+                style="@style/MovieDetailViewStyle"
+                android:src="@drawable/ic_favorite_off"
+                android:contentDescription="@string/add_to_favorite"
+                android:background="@android:color/transparent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleTextView" />
+
+            <TextView
+                android:id="@+id/plotSynopsisLabelView"
+                style="@style/MovieDetailViewStyle"
+                android:text="@string/plot_synopsis"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/favoriteButton"
+                app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/plotSynopsisTextView"
+                style="@style/MovieDetailViewStyle"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                app:layout_constraintTop_toBottomOf="@+id/plotSynopsisLabelView"
+                app:layout_constraintStart_toStartOf="@+id/plotSynopsisLabelView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/moreDetailLayout"
+                style="@style/TabletMovieMoreDetailLayoutStyle"
+                app:layout_constraintStart_toStartOf="@+id/posterImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/posterImageView">
+
+                <include
+                    layout="@layout/movie_detail_tabs"/>
+
+            </RelativeLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_vertical_padding">8dp</dimen>
+    <dimen name="layout_vertical_padding">16dp</dimen>
+    <dimen name="layout_horizontal_padding">8dp</dimen>
+
+    <dimen name="single_line_list_item_height">48dp</dimen>
+    <dimen name="single_line_list_item_horizontal_padding">16dp</dimen>
+    <dimen name="single_line_list_item_vertical_padding">8dp</dimen>
+
+    <dimen name="two_line_list_item_min_height">84dp</dimen>
+    <dimen name="two_line_list_item_vertical_padding">16dp</dimen>
+    <dimen name="two_line_list_item_left_padding">16dp</dimen>
+    <dimen name="two_line_list_item_right_padding">16dp</dimen>
+    <dimen name="two_line_list_item_spacing_between">8dp</dimen>
+
+    <dimen name="layout_margin">8dp</dimen>
+    <dimen name="large_layout_margin">16dp</dimen>
+
+    <dimen name="phone_poster_image_width">150dp</dimen>
+    <dimen name="phone_poster_image_height">225dp</dimen>
+    <dimen name="tablet_poster_image_width">250dp</dimen>
+    <dimen name="tablet_poster_image_height">375dp</dimen>
+
+    <dimen name="grid_view_spacing">0.5dp</dimen>
+
+    <dimen name="tmdb_logo_image_width">102dp</dimen>
+    <dimen name="tmdb_logo_image_height">40dp</dimen>
+
+    <dimen name="movie_trailer_list_item_text_spacing">16dp</dimen>
+
+    <dimen name="movie_detail_tab_elevation">6dp</dimen>
+    <dimen name="movie_detail_tab_item_height">48dp</dimen>
+    <dimen name="movie_detail_tab_item_horizontal_padding">12dp</dimen>
+    <dimen name="movie_detail_tab_item_vertical_padding">20dp</dimen>
+    <dimen name="phone_movie_detail_tab_layout_height">300dp</dimen>
+    <dimen name="tablet_movie_detail_tab_layout_height">600dp</dimen>
+
+    <dimen name="trailer_image_width">60dp</dimen>
+    <dimen name="trailer_image_height">45dp</dimen>
+
+    <dimen name="expandable_textview_image_button_padding">8dp</dimen>
+
+</resources>
