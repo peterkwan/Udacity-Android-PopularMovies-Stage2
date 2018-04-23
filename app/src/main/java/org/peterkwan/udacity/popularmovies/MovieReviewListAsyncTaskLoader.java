@@ -118,12 +118,14 @@ public class MovieReviewListAsyncTaskLoader extends AsyncTaskLoader<List<MovieRe
                     null,
                     new String[] { movieId });
 
-            List<ContentValues> contentValueList = new ArrayList<>();
-            for (MovieReview review : reviewList)
-                contentValueList.add(constructContentValues(review));
+            if (reviewList != null) {
+                List<ContentValues> contentValueList = new ArrayList<>();
+                for (MovieReview review : reviewList)
+                    contentValueList.add(constructContentValues(review));
 
-            resolver.bulkInsert(MovieReviewEntry.CONTENT_URI,
-                    contentValueList.toArray(new ContentValues[0]));
+                resolver.bulkInsert(MovieReviewEntry.CONTENT_URI,
+                        contentValueList.toArray(new ContentValues[0]));
+            }
         }
     }
 

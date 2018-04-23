@@ -28,9 +28,8 @@ public final class JsonUtils {
     private static final String POPULARITY = "popularity";
     private static final String AUTHOR = "author";
     private static final String CONTENT = "content";
-    private static final String YOUTUBE = "youtube";
     private static final String NAME = "name";
-    private static final String SOURCE = "source";
+    private static final String KEY = "key";
     private static final String TYPE = "type";
 
     private static final String IMAGE_URL = "http://image.tmdb.org/t/p/w%d%s";
@@ -84,7 +83,7 @@ public final class JsonUtils {
             return null;
 
         JSONObject jsonObject = new JSONObject(jsonString);
-        JSONArray jsonArray = jsonObject.optJSONArray(YOUTUBE);
+        JSONArray jsonArray = jsonObject.optJSONArray(RESULTS);
         if (jsonArray == null)
             return null;
 
@@ -134,8 +133,8 @@ public final class JsonUtils {
 
         return MovieTrailer.builder()
                 .name(jsonObject.optString(NAME))
-                .imageUrl(constructYoutubePath(YOUTUBE_IMAGE_URL, jsonObject.optString(SOURCE)))
-                .videoUrl(constructYoutubePath(YOUTUBE_VIDEO_URL, jsonObject.optString(SOURCE)))
+                .imageUrl(constructYoutubePath(YOUTUBE_IMAGE_URL, jsonObject.optString(KEY)))
+                .videoUrl(constructYoutubePath(YOUTUBE_VIDEO_URL, jsonObject.optString(KEY)))
                 .type(jsonObject.optString(TYPE))
                 .build();
     }

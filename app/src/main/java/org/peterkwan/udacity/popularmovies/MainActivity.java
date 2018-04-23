@@ -65,7 +65,8 @@ public class MainActivity extends BaseActivity implements MovieListFragment.OnMo
     }
 
     private void displayMovieDetail() {
-        retrieveMovieFavoriteFlagFromDatabase();
+        if (movie != null)
+            retrieveMovieFavoriteFlagFromDatabase();
 
         if (isTwoPaneLayout) {
             initMovieDetailFragment();

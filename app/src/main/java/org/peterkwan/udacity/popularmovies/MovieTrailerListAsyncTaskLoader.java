@@ -120,12 +120,14 @@ public class MovieTrailerListAsyncTaskLoader extends AsyncTaskLoader<List<MovieT
                     null,
                     new String[] { movieId });
 
-            List<ContentValues> contentValueList = new ArrayList<>();
-            for (MovieTrailer trailer : trailerList)
-                contentValueList.add(constructContentValues(trailer));
+            if (trailerList != null) {
+                List<ContentValues> contentValueList = new ArrayList<>();
+                for (MovieTrailer trailer : trailerList)
+                    contentValueList.add(constructContentValues(trailer));
 
-            resolver.bulkInsert(MovieTrailerEntry.CONTENT_URI,
-                    contentValueList.toArray(new ContentValues[0]));
+                resolver.bulkInsert(MovieTrailerEntry.CONTENT_URI,
+                        contentValueList.toArray(new ContentValues[0]));
+            }
         }
     }
 

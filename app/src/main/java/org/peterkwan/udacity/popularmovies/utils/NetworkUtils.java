@@ -20,7 +20,7 @@ public final class NetworkUtils {
 
     private static final String MOVIE_LIST_QUERY_URL = "http://api.themoviedb.org/3/movie/%s";
     private static final String MOVIE_REVIEW_LIST_QUERY_URL = "http://api.themoviedb.org/3/movie/%s/reviews";
-    private static final String MOVIE_TRAILER_LIST_QUERY_URL = "http://api.themoviedb.org/3/movie/%s/trailers";
+    private static final String MOVIE_TRAILER_LIST_QUERY_URL = "http://api.themoviedb.org/3/movie/%s/videos";
 
     private static final String API_KEY = "api_key";
     private static final String CLOSE = "close";

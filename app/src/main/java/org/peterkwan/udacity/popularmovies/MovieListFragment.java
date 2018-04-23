@@ -148,8 +148,7 @@ public class MovieListFragment extends BaseFragment implements MovieListAdapter.
                         int imageWidth = (width - gridViewColumnCount + 1 - 8) / gridViewColumnCount;
                         int imageHeight = (int) (imageWidth * 1.5);
 
-                        movieListAdapter.setImageWidth(imageWidth);
-                        movieListAdapter.setImageHeight(imageHeight);
+                        movieListAdapter.resizeImageView(imageWidth, imageHeight);
 
                         rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }

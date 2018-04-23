@@ -15,17 +15,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import lombok.Setter;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder> {
 
     private List<Movie> movieList;
     private final MovieListItemClickListener mListener;
 
-    @Setter
     private int imageWidth;
-
-    @Setter
     private int imageHeight;
 
     public MovieListAdapter(MovieListItemClickListener listener) {
@@ -60,6 +56,12 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
 
     public void setMovieList(List<Movie> movieList) {
         this.movieList = movieList;
+        notifyDataSetChanged();
+    }
+
+    public void resizeImageView(int width, int height) {
+        this.imageWidth = width;
+        this.imageHeight = height;
         notifyDataSetChanged();
     }
 
