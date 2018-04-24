@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity implements MovieListFragment.OnMo
 
         ButterKnife.bind(this);
 
-        if (movie != null)
+        if (movie != null && isTwoPaneLayout)
             displayMovieDetail();
     }
 

@@ -46,7 +46,12 @@ public class MovieListAsyncTaskLoader extends AsyncTaskLoader<List<Movie>> {
     protected void onStartLoading() {
         super.onStartLoading();
 
-        if (movieList != null)
+        boolean isFavoriteSelected = false;
+        if (loaderArgs != null && loaderArgs.containsKey(SORT_ORDER)) {
+            isFavoriteSelected = FAVORITE.equals(loaderArgs.getString(SORT_ORDER));
+        }
+
+        if (movieList != null && !isFavoriteSelected)
             deliverResult(movieList);
         else
             forceLoad();

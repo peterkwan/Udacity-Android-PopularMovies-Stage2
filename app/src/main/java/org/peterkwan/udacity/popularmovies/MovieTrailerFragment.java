@@ -130,7 +130,8 @@ public class MovieTrailerFragment extends BaseFragment implements MovieTrailerLi
     @Override
     public void onItemClicked(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        startActivity(intent);
+        if (intent.resolveActivity(context.getPackageManager()) != null)
+            startActivity(intent);
     }
 
 
