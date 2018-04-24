@@ -1,6 +1,7 @@
 package org.peterkwan.udacity.popularmovies;
 
 
+import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -24,6 +25,7 @@ import org.peterkwan.udacity.popularmovies.data.Movie;
 import org.peterkwan.udacity.popularmovies.provider.MovieContract.MovieEntry;
 import org.peterkwan.udacity.popularmovies.utils.StringUtils;
 
+import java.lang.ref.WeakReference;
 import java.util.Locale;
 
 import butterknife.BindString;
@@ -44,6 +46,7 @@ public class MovieDetailFragment extends Fragment {
     private static final String MOVIE = "movie";
     private static final String FROM_DATE_FORMAT = "yyyy-MM-dd";
     private static final String TO_DATE_FORMAT = "MMM dd, yyyy";
+    private static final int UPDATE_TOKEN = 1;
 
     private Unbinder unbinder;
     private boolean isFavorite;
@@ -144,16 +147,13 @@ public class MovieDetailFragment extends Fragment {
     public void onFavoriteButtonClicked() {
         ContentResolver resolver = context.getContentResolver();
         if (resolver != null) {
-            int recordCount = resolver.update(
+            MovieAsyncQueryHandler handler = new MovieAsyncQueryHandler(resolver, this);
+            handler.startUpdate(UPDATE_TOKEN,
+                    null,
                     ContentUris.withAppendedId(MovieEntry.CONTENT_URI, movie.getId()),
                     constructContentValues(),
                     null,
                     null);
-
-            if (recordCount > 0) {
-                isFavorite = !isFavorite;
-                setFavoriteDisplay();
-            }
         }
 
     }
@@ -240,9 +240,31 @@ public class MovieDetailFragment extends Fragment {
         }
     }
 
+    private void toggleFavoriteFlag() {
+        isFavorite = !isFavorite;
+        setFavoriteDisplay();
+    }
+
     private ContentValues constructContentValues() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(MovieEntry.COLUMN_FAVORITE, !isFavorite);
         return contentValues;
+    }
+
+    private static class MovieAsyncQueryHandler extends AsyncQueryHandler {
+        private final WeakReference<MovieDetailFragment> fragmentRef;
+
+        public MovieAsyncQueryHandler(ContentResolver cr, MovieDetailFragment fragment) {
+            super(cr);
+            this.fragmentRef = new WeakReference<>(fragment);
+        }
+
+        @Override
+        protected void onUpdateComplete(int token, Object cookie, int result) {
+            if (result > 0) {
+                MovieDetailFragment fragment = this.fragmentRef.get();
+                fragment.toggleFavoriteFlag();
+            }
+        }
     }
 }
