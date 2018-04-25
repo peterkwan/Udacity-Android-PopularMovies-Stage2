@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.FileObserver;
 import android.support.annotation.Nullable;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
@@ -35,6 +36,7 @@ public class MovieListAsyncTaskLoader extends AsyncTaskLoader<List<Movie>> {
     private List<Movie> movieList;
     private final Bundle loaderArgs;
     private final ContentResolver resolver;
+    private ForceLoadContentObserver observer;
 
     public MovieListAsyncTaskLoader(Context context, Bundle args) {
         super(context);
@@ -46,15 +48,27 @@ public class MovieListAsyncTaskLoader extends AsyncTaskLoader<List<Movie>> {
     protected void onStartLoading() {
         super.onStartLoading();
 
-        boolean isFavoriteSelected = false;
-        if (loaderArgs != null && loaderArgs.containsKey(SORT_ORDER)) {
-            isFavoriteSelected = FAVORITE.equals(loaderArgs.getString(SORT_ORDER));
+        boolean isFavorite = false;
+        if (loaderArgs != null && loaderArgs.containsKey(SORT_ORDER))
+            isFavorite = FAVORITE.equals(loaderArgs.getString(SORT_ORDER));
+
+        if (movieList != null)
+            deliverResult(movieList);
+
+        if (isFavorite) {
+            if (observer == null) {
+                observer = new ForceLoadContentObserver();
+                resolver.registerContentObserver(MovieEntry.CONTENT_URI, true, observer);
+            }
+
+            if (takeContentChanged() || movieList == null)
+                forceLoad();
+        }
+        else {
+            if (movieList == null)
+                forceLoad();
         }
 
-        if (movieList != null && !isFavoriteSelected)
-            deliverResult(movieList);
-        else
-            forceLoad();
     }
 
     @Nullable
@@ -110,6 +124,16 @@ public class MovieListAsyncTaskLoader extends AsyncTaskLoader<List<Movie>> {
     public void deliverResult(@Nullable List<Movie> data) {
         movieList = data;
         super.deliverResult(data);
+    }
+
+    @Override
+    protected void onReset() {
+        super.onReset();
+
+        if (observer != null) {
+            resolver.unregisterContentObserver(observer);
+            observer = null;
+        }
     }
 
     private void updateDatabase(Uri contentUri, @Nullable String movieIdColumn, List<Movie> movieList) {
